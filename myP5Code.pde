@@ -1,16 +1,25 @@
 //🟢Setup Procedure - Runs Once to Set The Canvas
 void setup() {
-    size(600, 400); 
+    size(900, 700); 
 }
 
 //🎯Variable Declarations Go Here
 
+    var x = 100
+    var sunSize = 150
+    
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
  
   background(255,255,255,0);
-  
+  //sun
+  ellipse(x, x, sunSize, sunSize);
+  line(37, 165, 20, 181);
+  line(74, 185, 68, 208);
+  line(124, 188, 131, 207);
+  line(166, 164, 183, 178);
+  line(190, 127, 216, 137);
 
 
 
