@@ -7,7 +7,8 @@ void setup() {
 
     var x = 100
     var sunSize = 150
-    var dolphinX = 46
+    var dolphinX = 64
+    var leftX = 288
     
 
 //🟢Draw Procedure - Runs on Repeat
@@ -28,11 +29,26 @@ draw = function(){
 
   //dolphin
   ellipse(dolphinX, 397, 80, 40);
-  arc(dolphinX - 1, 376, 15, 30, radians(180), radians(360));
+  triangle(dolphinX - 7, 376, dolphinX - 16, 357, dolphinX + 13, 378);
   ellipse(dolphinX + 25, 391, 10, 10);
   arc(dolphinX - 4, 410, 15, 30, radians(20), radians(160));
   arc(dolphinX + 6, 414, 15, 30, radians(0), radians(180));
+  triangle(dolphinX - 40, 397, dolphinX - 56, 375, dolphinX - 55, 394);
+  triangle(dolphinX - 40, 400, dolphinX - 51, 422, dolphinX - 55, 402);
+  rect(133, 624, 160, 70);
 
+  //person
+  ellipse(162, 657, 40, 40);
+  line(182, 656, 225, 656);
+  line(194, 637, 207, 656);
+  line(194, 678, 207, 656);
+  line(245, 644, 225, 656);
+  line(245, 676, 225, 656);
+
+//cloud
+  ellipse(leftX, 150, 126, 97);
+  ellipse(leftX+62, 150, 70, 60);
+  ellipse(leftX-62, 150, 70, 60);
 
 
 
