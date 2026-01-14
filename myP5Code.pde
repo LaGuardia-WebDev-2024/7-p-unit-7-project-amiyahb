@@ -8,7 +8,8 @@ void setup() {
     var x = 100
     var sunSize = 150
     var dolphinX = 64
-    var leftX = 288
+    var leftX = 365
+    var rightX = 621
     
 
 //🟢Draw Procedure - Runs on Repeat
@@ -16,6 +17,7 @@ draw = function(){
  
   background(255,255,255,0);
    
+  stroke(0,0,0)
   //sun
   ellipse(x, x, sunSize, sunSize);
   line(37, 165, 20, 181);
@@ -44,16 +46,54 @@ draw = function(){
   line(194, 678, 207, 656);
   line(245, 644, 225, 656);
   line(245, 676, 225, 656);
+ 
+ noStroke()
+//clouds
+  ellipse(leftX, 86, 126, 97);
+  ellipse(leftX+62, 86, 70, 60);
+  ellipse(leftX-62, 86, 70, 60);
 
-//cloud
-  ellipse(leftX, 150, 126, 97);
-  ellipse(leftX+62, 150, 70, 60);
-  ellipse(leftX-62, 150, 70, 60);
+  ellipse(rightX, 86, 126, 97);
+  ellipse(rightX+62, 86, 70, 60);
+  ellipse(rightX-62, 86, 70, 60);
+  
+  stroke(0, 0, 0);
+  strokeWeight(4)
+  //beachNet
+  line(536, 689, 536, 554);
+  line(726, 689, 726, 554);
+  line(536, 554, 725, 554);
+  line(536, 623, 723, 623);
+  line(555, 623, 555, 554);
+  line(575, 623, 575, 554);
+  line(595, 623, 595, 554);
+  line(615, 623, 615, 554);
+  line(635, 623, 635, 554);
+  line(655, 623, 655, 554);
+  line(675, 623, 675, 554);
+  line(695, 623, 695, 554);
+  line(715, 623, 715, 554);
+  line(536, 575, 726, 575);
+  line(536, 595, 726, 595);
+  line(536, 615, 726, 615);
+  strokeWeight(1)
+
+  //beachball
+  ellipse(412, 653, 50, 50);
 
 
 
+  dolphinX = dolphinX + 1
+  sunSize /= 99/100
 
+  if(sunSize > 200){
+    sunSize = 150;
+  }
 
+  leftX = leftX + 1
+  rightX = rightX - 1
+
+  
 
   //Show x y values when mousepressed
   if(mousePressed){showXYPositions();}
@@ -73,5 +113,5 @@ showXYPositions = function(){
     ellipse(mouseX, mouseY, 10, 10);
     fill(255,255,255)
 
-    dolphinX = mouseX
+  
 }
