@@ -10,7 +10,8 @@ void setup() {
     var dolphinX = 64
     var leftX = 365
     var rightX = 621
-    
+    var beachballX = 412
+    var beachballY = 653
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
@@ -18,6 +19,7 @@ draw = function(){
   background(255,255,255,0);
    
   stroke(0,0,0)
+  fill(255, 234, 0)
   //sun
   ellipse(x, x, sunSize, sunSize);
   line(37, 165, 20, 181);
@@ -30,24 +32,36 @@ draw = function(){
   line(169, 31, 190, 18);
 
   //dolphin
+  fill(204, 85, 0)
   ellipse(dolphinX, 397, 80, 40);
+  fill(210, 125, 45)
   triangle(dolphinX - 7, 376, dolphinX - 16, 357, dolphinX + 13, 378);
   ellipse(dolphinX + 25, 391, 10, 10);
   arc(dolphinX - 4, 410, 15, 30, radians(20), radians(160));
   arc(dolphinX + 6, 414, 15, 30, radians(0), radians(180));
   triangle(dolphinX - 40, 397, dolphinX - 56, 375, dolphinX - 55, 394);
   triangle(dolphinX - 40, 400, dolphinX - 51, 422, dolphinX - 55, 402);
+
+  //beachMat
+  fill(240, 255, 255)
   rect(133, 624, 160, 70);
 
   //person
+  fill(	123, 63, 0)
   ellipse(162, 657, 40, 40);
+  stroke(	123, 63, 0)
   line(182, 656, 225, 656);
   line(194, 637, 207, 656);
   line(194, 678, 207, 656);
   line(245, 644, 225, 656);
   line(245, 676, 225, 656);
+  fill(255, 255, 255)
+  ellipse(159, 666, 10, 10);
+  ellipse(159, 650, 10, 10);
+
  
  noStroke()
+ fill(255, 255, 255)
 //clouds
   ellipse(leftX, 86, 126, 97);
   ellipse(leftX+62, 86, 70, 60);
@@ -78,22 +92,36 @@ draw = function(){
   line(536, 615, 726, 615);
   strokeWeight(1)
 
+fill(255, 49, 49)
   //beachball
-  ellipse(412, 653, 50, 50);
+  ellipse(beachballX, beachballY, 50, 50);
 
 
 
   dolphinX = dolphinX + 1
   sunSize /= 99/100
 
-  if(sunSize > 200){
+  if(sunSize > 175){
     sunSize = 150;
+  }
+
+  if(dolphinX > 1000){
+    dolphinX = 35
+  }
+
+  if(leftX > 1000){
+    leftX = 365
+  }
+
+  if(rightX < -4){
+    rightX = 621
   }
 
   leftX = leftX + 1
   rightX = rightX - 1
 
-  
+  beachballX = mouseX;
+  beachballY = mouseY;
 
   //Show x y values when mousepressed
   if(mousePressed){showXYPositions();}
@@ -113,5 +141,6 @@ showXYPositions = function(){
     ellipse(mouseX, mouseY, 10, 10);
     fill(255,255,255)
 
+  
   
 }
